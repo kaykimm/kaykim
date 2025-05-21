@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is Love? – Kay Kim</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+</head>
+<body>
+
+  <!-- 공통 header -->
+  <div id="header-placeholder"></div>
+
+  <!-- 메인 콘텐츠 -->
+  <main class="page-wrapper">
+    <div class="project-desc-wrapper">
+      <div class="project-desc">
+        <p><a href="../../index.html">&#8592 Back</a></p>
+        <p class="project-title">WHAT IS LOVE?</p>
+        <p class="project-meta">2023</p>
+        <p>What is love? As people connect with each other and with the world around them, love becomes such an essential part of how society is built. </p>
+        <p>She always knew love was important, but struggled to put it into words. She started interviewed people of different ages, “What does love mean to you?”</p>
+        <p>This fabric book was based on those interviews and designed with the idea of the red thread of fate.</p>
+      </div>
+    </div>
+  
+    <!-- 오른쪽 이미지들 -->
+    <div class="project-images">
+      <img src="/Kay_Works/사랑/lovelovelove.gif" alt="">
+      <img src="/Kay_Works/사랑/사랑책 끝.png" alt="">
+      <img src="/Kay_Works/사랑/사랑책6.png" alt="">
+      <img src="/Kay_Works/사랑/사랑책2.png" alt="">
+      <img src="/Kay_Works/사랑/사랑책3.png" alt="">
+      <img src="/Kay_Works/사랑/사랑책4.png" alt="">
+      <img src="/Kay_Works/사랑/사랑책5.png" alt="">
+      <img src="/Kay_Works/사랑/사랑책 1.png" alt="">
+     
+    </div>
+  </main>
+  
+  
+
+  <!-- 공통 footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- 헤더/푸터 불러오기 -->
+  <script>
+    ["header", "footer"].forEach(id =>
+      fetch(location.pathname.includes('Kay_Works') ? `../${id}.html` : `./${id}.html`)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(`${id}-placeholder`).innerHTML = html;
+
+          // 다크모드 버튼 적용 (footer 안에 버튼 있을 경우)
+          if (id === "footer") {
+            const toggleBtn = document.getElementById("modeToggle");
+            if (toggleBtn) {
+              toggleBtn.addEventListener("click", () => {
+                document.body.classList.toggle("dark-mode");
+                toggleBtn.textContent = document.body.classList.contains("dark-mode")
+                  ? "⊛ lights on" : "⊛ lights off";
+              });
+            }
+          }
+        })
+    );
+  </script>
+</body>
+</html>

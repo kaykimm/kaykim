@@ -1,0 +1,427 @@
+/* === Base === */
+body {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  background: #fff;
+  color: #111;
+  padding-top: 130px;
+}
+
+/* === Header === */
+.name {
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration: none;
+  color: #111;
+  margin: 0;
+  padding-top: 0px;
+}
+
+.site-header {
+  min-height: 80px;
+  position: fixed;
+  border-bottom: 1px solid #ccc;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+}
+
+.header-inner {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8rem;
+  margin-left: 0rem;  
+  margin-right: auto;
+  text-align: left;
+  position: relative;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.header-middle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: #333;
+  margin-right: 80px;
+}
+
+.header-middle p {
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 11.5px;
+  text-align: left;
+}
+
+/* === Project Grid (Main Page) === */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 2rem;
+  padding-bottom: 75px;
+  margin: 0;
+}
+
+.thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 10 / 7;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  transition: opacity 0.3s ease;
+}
+
+.thumb:hover img {
+  opacity: 0.3;
+}
+
+.project-grid video {
+  aspect-ratio: 10 / 7;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: #111;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  text-align: center;
+  pointer-events: none;
+}
+
+.thumb:hover .overlay {
+  opacity: 1;
+}
+
+/* === Links === */
+a {
+  color: #111;
+  text-decoration: none;
+  font-style: normal;
+  transition: all 0 ease;
+}
+
+a:hover {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+/* === Footer === */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: #fff;
+  color: #111;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  z-index: 20;
+}
+
+.site-footer button {
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #111;
+}
+
+.site-footer button:hover {
+  opacity: 0.7;
+}
+
+.footer-right {
+  font-size: 12px;
+  color: #111;
+  padding-right: 3.3rem;
+}
+
+/* === Tooltip === */
+.tooltip {
+  position: fixed;
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.4;
+  z-index: 999;
+  display: none;
+  pointer-events: none;
+  max-width: 260px;
+  white-space: normal;
+  border-radius: 4px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 180px;
+  text-align: left;
+}
+
+.tooltip strong {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.tooltip span {
+  color: #666;
+  font-size: 11px;
+  margin-top: 0;
+}
+
+body:not(.dark-mode) .tooltip {
+  background: #fff;
+  border: 1px solid #111;
+  color: #111;
+}
+
+body.dark-mode .tooltip {
+  background: #111;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+body.dark-mode .tooltip span {
+  color: #ccc;
+}
+
+/* === Dark Mode === */
+body.dark-mode {
+  background: #000000;
+  color: #fff;
+}
+
+body.dark-mode .site-header {
+  background: #000000;
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .name,
+body.dark-mode .header-middle,
+body.dark-mode .header-middle a,
+body.dark-mode .header-right a,
+body.dark-mode .dot-link {
+  color: #fff;
+}
+
+body.dark-mode .dot-link:hover,
+body.dark-mode a:hover {
+  color: #fff;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+body.dark-mode .site-footer {
+  background: #000000;
+  color: #fff;
+  border-top: 1px solid #444;
+}
+
+body.dark-mode .site-footer button,
+body.dark-mode .footer-right {
+  color: #fff;
+}
+
+body.dark-mode .thumb:hover .overlay {
+  color: #fff;
+}
+
+/* === Project Detail Layout === */
+.two-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  gap: 40px;
+}
+/* 전체 레이아웃 */
+.page-wrapper {
+  position: relative;
+}
+
+/* 왼쪽 설명: 고정 위치 */
+.project-desc-wrapper {
+  position: fixed;
+  top: 130px;
+  left: 2rem;
+  width: 320px;
+  font-size: 12px;
+  line-height: 1.7;
+  z-index: 10;
+  background: white;
+}
+
+/* 오른쪽 이미지들: 왼쪽 영역 피해서 배치 */
+.project-images {
+  margin-left: 500px; /* 왼쪽 고정 박스보다 더 여유있게 */
+  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-images img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* === Dark Mode: Project Detail Fix === */
+body.dark-mode .project-desc-wrapper {
+  background: transparent; /* 불필요한 흰 배경 제거 */
+  color: #fff;
+}
+
+body.dark-mode .project-desc-wrapper a {
+  color: #fff;
+}
+
+body.dark-mode .project-desc-wrapper a:hover {
+  color: #fff;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.thumb-img.darkmode {
+  display: none;
+}
+
+body.dark-mode .thumb-img.lightmode {
+  display: none;
+}
+
+body.dark-mode .thumb-img.darkmode {
+  display: block;
+}
+
+/* === Archive: 3-column grid + natural image ratio === */
+.archive-page .project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3열 고정 */
+  gap: 20px;
+  padding: 2rem;
+}
+
+/* 썸네일 박스 */
+.archive-page .thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* 이미지 비율 유지 + 자연 크기 표시 */
+.archive-page .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: none;
+}
+
+/* hover 시 흐려지지 않도록 */
+.archive-page .thumb:hover img {
+  opacity: 1;
+}
+
+/* tooltip 위치 및 스타일 */
+.archive-page .tooltip {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  padding: 10px;
+  z-index: 100;
+  display: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.archive-page .thumb:hover .tooltip {
+  display: block;
+}
+
+/* 다크모드 대응 */
+body.dark-mode .archive-page .tooltip {
+  background: #111;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.project-images video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.center-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* or 100vh for full height */
+  text-align: center;
+}
+
+.center-message p {
+  font-size: 0.8rem;
+  font-weight: 450;
+  color: #222; /* Adjust for dark/light mode */
+}
+
+/* mobile!*/
+
+/* 작은 화면 대응 */
+@media (max-width: 768px) {
+  .page-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .project-images {
+    align-items: flex-start;
+  }
+}
+

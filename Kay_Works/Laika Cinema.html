@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laika Cinema – Kay Kim</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+</head>
+<body>
+
+  <!-- 공통 header -->
+  <div id="header-placeholder"></div>
+
+  <!-- 메인 콘텐츠 -->
+  <main class="page-wrapper">
+    <div class="project-desc-wrapper">
+      <div class="project-desc">
+        <p><a href="../../index.html">&#8592 Back</a></p>
+        <p class="project-title">LAIKA CINEMA REBRANDING</p>
+        <p class="project-meta">2025</p>
+        <p>[Laika Cinema] is a rebranding project for her favorite small independent movie theater located in Seoul. The work includes a redesigned logo, film-related print materials, and merchandise.</p>
+        <p>The visual concept was inspired by the way small moments can leave a lasting impact—like a short film that stirs deep emotions, or a small circle casting light onto a much larger one. </p>
+      </div>
+    </div>
+  
+    <!-- 오른쪽 이미지들 -->
+    <div class="project-images">
+      <img src="/Kay_Works/라이카시네마/Lightbox 아침.png" alt="">
+      <img src="/Kay_Works/라이카시네마/Lightbox laika night.png" alt="">
+      <img src="/Kay_Works/라이카시네마/브랜드가이드라인.png" alt="">
+      <img src="/Kay_Works/라이카시네마/laika cinema white!.png" alt="">
+      <img src="/Kay_Works/라이카시네마/laika cinema tshirt black.png" alt="">
+    </div>
+  </main>
+  
+  
+
+  <!-- 공통 footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- 헤더/푸터 불러오기 -->
+  <script>
+    ["header", "footer"].forEach(id =>
+      fetch(location.pathname.includes('Kay_Works') ? `../${id}.html` : `./${id}.html`)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(`${id}-placeholder`).innerHTML = html;
+
+          // 다크모드 버튼 적용 (footer 안에 버튼 있을 경우)
+          if (id === "footer") {
+            const toggleBtn = document.getElementById("modeToggle");
+            if (toggleBtn) {
+              toggleBtn.addEventListener("click", () => {
+                document.body.classList.toggle("dark-mode");
+                toggleBtn.textContent = document.body.classList.contains("dark-mode")
+                  ? "⊛ lights on" : "⊛ lights off";
+              });
+            }
+          }
+        })
+    );
+  </script>
+</body>
+</html>

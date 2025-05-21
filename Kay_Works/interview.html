@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interview – Kay Kim</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+</head>
+<body>
+
+  <!-- 공통 header -->
+  <div id="header-placeholder"></div>
+
+  <!-- 메인 콘텐츠 -->
+  <main class="page-wrapper">
+    <div class="project-desc-wrapper">
+      <div class="project-desc">
+        <p><a href="../../index.html">&#8592 Back</a></p>
+        <p class="project-title">HALIM LEE INTERVIEW</p>
+        <p class="project-meta">2025</p>
+        <p>An interview with Halim Lee, an a multidisciplinary graphic designer originally from Seoul, South Korea. By embracing diverse media, from print to digital, she strive to explore new possibilities in graphic design. </p>
+        <p>In this interview, she shares how personal feelings become portals fro collective storytelling. Printed by the newsprint club. </p>
+      </div>
+    </div>
+  
+    <!-- 오른쪽 이미지들 -->
+    <div class="project-images">
+      <img src="/Kay_Works/인터뷰/1.png" alt="">
+      <img src="/Kay_Works/인터뷰/22.png" alt="">
+      <img src="/Kay_Works/인터뷰/outside.png" alt="">
+      <img src="/Kay_Works/인터뷰/inside.png" alt="">
+
+    </div>
+  </main>
+  
+  
+
+  <!-- 공통 footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- 헤더/푸터 불러오기 -->
+  <script>
+    ["header", "footer"].forEach(id =>
+      fetch(location.pathname.includes('Kay_Works') ? `../${id}.html` : `./${id}.html`)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(`${id}-placeholder`).innerHTML = html;
+
+          // 다크모드 버튼 적용 (footer 안에 버튼 있을 경우)
+          if (id === "footer") {
+            const toggleBtn = document.getElementById("modeToggle");
+            if (toggleBtn) {
+              toggleBtn.addEventListener("click", () => {
+                document.body.classList.toggle("dark-mode");
+                toggleBtn.textContent = document.body.classList.contains("dark-mode")
+                  ? "⊛ lights on" : "⊛ lights off";
+              });
+            }
+          }
+        })
+    );
+  </script>
+</body>
+</html>

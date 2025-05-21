@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fix me Fix me! – Kay Kim</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+</head>
+<body>
+
+  <!-- 공통 header -->
+  <div id="header-placeholder"></div>
+
+  <!-- 메인 콘텐츠 -->
+  <main class="page-wrapper">
+    <div class="project-desc-wrapper">
+      <div class="project-desc">
+        <p><a href="../../index.html">&#8592 Back</a></p>
+        <p class="project-title">FIX ME, FIX ME!</p>
+        <p class="project-meta">2025</p>
+        <p>Fix me, Fix me! There are countless books in the world, and just as many types of errors. As a graphic design student, she has designed an irritating book filled with typographic errors—big and small—meant to frustrate designers. </p>
+        <p>Try spotting and fixing the errors on each page! Since she is still learning myself as a student, wouldn’t it also be fun to discover unintentional errors she might has overlooked?</p>
+      </div>
+    </div>
+  
+    <!-- 오른쪽 이미지들 -->
+    <div class="project-images">
+        
+        <img src="/Kay_Works/fixme/fixme~~.png" alt="">
+        <img src="/Kay_Works/fixme/digital spreads.png" alt="">
+        <img src="/Kay_Works/fixme/fixme scanned portfolio.png" alt="">
+        <img src="/Kay_Works/fixme/스크린샷 2025-05-07 오후 2.46.57.png" alt="">
+
+      
+    </div>
+  </main>
+  
+  
+
+  <!-- 공통 footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- 헤더/푸터 불러오기 -->
+  <script>
+    ["header", "footer"].forEach(id =>
+      fetch(location.pathname.includes('Kay_Works') ? `../${id}.html` : `./${id}.html`)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(`${id}-placeholder`).innerHTML = html;
+
+          // 다크모드 버튼 적용 (footer 안에 버튼 있을 경우)
+          if (id === "footer") {
+            const toggleBtn = document.getElementById("modeToggle");
+            if (toggleBtn) {
+              toggleBtn.addEventListener("click", () => {
+                document.body.classList.toggle("dark-mode");
+                toggleBtn.textContent = document.body.classList.contains("dark-mode")
+                  ? "⊛ lights on" : "⊛ lights off";
+              });
+            }
+          }
+        })
+    );
+  </script>
+</body>
+</html>

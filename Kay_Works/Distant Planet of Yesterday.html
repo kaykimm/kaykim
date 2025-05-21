@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Distant Planet of Yesterday – Kay Kim</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+</head>
+<body>
+
+  <!-- 공통 header -->
+  <div id="header-placeholder"></div>
+
+  <!-- 메인 콘텐츠 -->
+  <main class="page-wrapper">
+    <div class="project-desc-wrapper">
+      <div class="project-desc">
+        <p><a href="../../index.html">&#8592 Back</a></p>
+        <p class="project-title">DISTANT PLANET OF YESTERDAY</p>
+        <p class="project-meta">2024</p>
+        <p>[Distant Planet of Yesterday] is a revisualization project. For this project, she redesigned the poster, ticket, and name tag for an exhibition where neon green was the signature color.</p>
+        <p>To express the complexity of the world and the intricate systems of the universe, she used dense lines inspired by semiconductors into the design.</p>
+      </div>
+    </div>
+  
+    <!-- 오른쪽 이미지들 -->
+    <div class="project-images">
+      <img src="/Kay_Works/어제의행성/어제의 행성 버스정류장.png" alt="">
+      <img src="/Kay_Works/어제의행성/전체!.png" alt="">
+      <img src="/Kay_Works/어제의행성/어제의 행성 카드.png" alt="">
+    </div>
+  </main>
+  
+  
+
+  <!-- 공통 footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- 헤더/푸터 불러오기 -->
+  <script>
+    ["header", "footer"].forEach(id =>
+      fetch(location.pathname.includes('Kay_Works') ? `../${id}.html` : `./${id}.html`)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(`${id}-placeholder`).innerHTML = html;
+
+          // 다크모드 버튼 적용 (footer 안에 버튼 있을 경우)
+          if (id === "footer") {
+            const toggleBtn = document.getElementById("modeToggle");
+            if (toggleBtn) {
+              toggleBtn.addEventListener("click", () => {
+                document.body.classList.toggle("dark-mode");
+                toggleBtn.textContent = document.body.classList.contains("dark-mode")
+                  ? "⊛ lights on" : "⊛ lights off";
+              });
+            }
+          }
+        })
+    );
+  </script>
+</body>
+</html>

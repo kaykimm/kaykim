@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kay kim</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main class="project-grid">
+    <a class="thumb" data-title="Palmistry Existentialism" data-desc="Publication, Editorial" data-year="documenting...">
+      <img src="images/Palmistry Existentialism.jpg" alt="1">
+    </a>
+
+    <a href="Kay_Works/knoll.html" class="thumb" data-title="Knoll Research Library" data-desc="Branding, Motion" data-year="2025">
+      <img src="images/knoll.gif" alt="3">
+    </a>
+
+    <a href="Kay_Works/Distant Planet of Yesterday.html" class="thumb" data-title="Distant Planet of Yesterday" data-desc="Visualization" data-year="2024">
+      <img src="images/어제의 행성.jpg" alt="3">
+    </a>
+
+    <a href="Kay_Works/mbc.html" class="thumb" data-title="MBC Branding" data-desc="Branding" data-year="2025" style="display: block; width: fit-content;">
+      <img src="images/main.png" class="thumb-img lightmode" alt="Laika Cinema Light">
+    </a>
+
+      <a href="Kay_Works/Laika Cinema.html" class="thumb" data-title="Laika Cinema" data-desc="Branding" data-year="2025 - on going">
+        <img src="images/laika-light.png" class="thumb-img lightmode" alt="Laika Cinema Light">
+        <img src="images/laika-dark.png" class="thumb-img darkmode" alt="Laika Cinema Dark">
+      </a>
+
+   <a href="Kay_Works/Fix me!.html" class="thumb" data-title="Fix me, fix me!" data-desc="Publication, Editorial" data-year="2025">
+    <img src="images/fixme~~.png" alt="6">
+   </a>
+
+    <a href="Kay_Works/interview.html" class="thumb" data-title="A Interview with Halim Lee" data-desc="Publication, Editorial" data-year="2025">
+      <img src="images/halim lee final.png" alt="7">
+      </a>
+
+       
+   <a href="Kay_Works/indy.html" class="thumb" data-title="The Indy" data-desc="Publication, Editorial" data-year="2023 - on going">
+    <img src="images/indy.png" alt="4">
+   </a> 
+  
+<!-- 
+  <a href="Kay_Works/Nature in Time.html" class="thumb" data-title="Nature in Time" data-desc="Publication" data-year="2023">
+      <img src="images/스크린샷 2025-05-05 오후 10.21.20.png" alt="5">
+    </a>
+
+    <a href="Posters.html" class="thumb" data-title="Poster Series" data-desc="Poster design" data-year="2023 - on going">
+      <img src="images/airy grace.png" alt="8">
+    </a> -->
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    
+ ["header", "footer"].forEach(id =>
+      fetch(`/${id}.html`)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(`${id}-placeholder`).innerHTML = html;
+
+          // 다크 모드 토글 버튼 로드 이후에만 작동
+          if (id === "footer") {
+            const toggleBtn = document.getElementById("modeToggle");
+            if (toggleBtn) {
+              toggleBtn.addEventListener("click", () => {
+                document.body.classList.toggle("dark-mode");
+                toggleBtn.textContent = document.body.classList.contains("dark-mode")
+                  ? "⊛ lights on"
+                  : "⊛ lights off";
+              });
+            }
+          }
+        })
+    );
+
+    // 툴팁
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    document.body.appendChild(tooltip);
+
+    document.querySelectorAll('.thumb').forEach(thumb => {
+      thumb.addEventListener('mouseenter', () => {
+        tooltip.innerHTML = `<strong>${thumb.dataset.title}</strong><br><span>${thumb.dataset.desc}</span><br><span>${thumb.dataset.year}</span>`;
+        tooltip.style.display = 'block';
+      });
+      thumb.addEventListener('mousemove', e => {
+        tooltip.style.left = `${e.clientX + 20}px`;
+        tooltip.style.top = `${e.clientY - 20}px`;
+      });
+      thumb.addEventListener('mouseleave', () => tooltip.style.display = 'none');
+    });
+  </script>
+</body>
+</html>

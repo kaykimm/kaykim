@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Archive | Kay Kim</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+</head>
+<body class="archive-page">
+
+  <!-- Header -->
+  <body>
+    <div id="header-placeholder"></div>
+  
+    <script>
+      fetch('/header.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+        });
+    </script>
+  </body> 
+
+  <main class="center-message">
+    <p>More coming soon!</p>
+  </main>
+
+
+  <!-- Grid -->
+  <!-- <main class="project-grid">
+    <div class="thumb" data-title="RISD Posters" data-desc="Print, 2023">
+      <img src="archive_images/airy grace.jpg" alt="poster">
+    </div>
+    <div class="thumb" data-title="Mockup Study" data-desc="Editorial, 2024">
+      <img src="../images/mockup.jpg" alt="mockup">
+    </div>
+  </main> -->
+
+  <!-- Tooltip -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const thumbs = document.querySelectorAll('.thumb');
+      const tooltip = document.createElement('div');
+      tooltip.classList.add('tooltip');
+      document.body.appendChild(tooltip);
+
+      thumbs.forEach(thumb => {
+        thumb.addEventListener('mouseenter', () => {
+          const title = thumb.getAttribute('data-title');
+          const desc = thumb.getAttribute('data-desc');
+          tooltip.innerHTML = `<strong>${title}</strong><br><span>${desc}</span>`;
+          tooltip.style.display = 'block';
+        });
+
+        thumb.addEventListener('mousemove', e => {
+          tooltip.style.left = (e.clientX + 20) + 'px';
+          tooltip.style.top = (e.clientY - 20) + 'px';
+        });
+
+        thumb.addEventListener('mouseleave', () => {
+          tooltip.style.display = 'none';
+        });
+      });
+    });
+  </script>
+
+<div class="site-footer">
+  <div class="footer-left">
+      © Kay Kim 2025
+    <!-- <button id="modeToggle">⊛ lights on</button> -->
+  </div>
+  <div class="footer-right">
+      Site under Development!
+  </div>
+</div>
+
+<!-- <footer class="site-footer">
+    <div class="footer-left">
+      <button id="modeToggle">lights on</button>
+    </div>
+  </footer> -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleBtn = document.getElementById('modeToggle');
+  
+      toggleBtn.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+  
+        if (document.body.classList.contains('dark-mode')) {
+          toggleBtn.textContent = 'lights on';
+        } else {
+          toggleBtn.textContent = 'lights off';
+        }
+      });
+    });
+  </script>
+  
+</body>
+</html>

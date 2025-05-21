@@ -1,0 +1,152 @@
+/* basic */
+body {
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    background: #fff;
+    color: #111;
+    padding-top: 130px;
+  }
+  
+  /* my name */
+  .name {
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: none;
+    color: #111;
+    margin: 0;
+    padding-top: 0px;
+    
+  }
+  
+  .site-header {
+    min-height: 80px; /* 또는 height: 80px; */
+    position: fixed;
+    border-bottom: 1px solid #ccc;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+  
+    z-index: 1000;
+  }
+  
+  .header-inner {
+  width: 100%;
+  /* max-width: 1000px; */
+  padding: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8rem;
+  margin-left: 0rem;  
+  margin-right: auto;
+  text-align: left;
+  
+  position: relative; /* ✅ 이 줄 추가! */
+  }
+  
+  
+  
+  /* header - left */
+  .header-left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 10px;
+  
+  }
+  
+  /* header - middle */
+  .header-middle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: #333;
+    margin-right: 80px;
+  }
+  
+  .header-middle p {
+    margin: 0;
+  }
+  
+  /* header - right */
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 11.5px;
+    text-align: left;
+  }
+  
+  
+  
+  .nav-links a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: #111;
+    font-weight: 400;
+  }
+  
+  /* Detail page layout */
+  .project-detail {
+    display: flex;
+    gap: 4rem;
+    padding: 6rem 6vw 3rem; /* header 높이 고려해서 padding-top */
+    align-items: flex-start;
+  }
+  
+  .project-text {
+    flex: 1;
+    max-width: 400px;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .project-images {
+    flex: 2;
+  }
+  
+  .project-images img {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+  }
+  
+  .project-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+  
+    max-width: 1000px;
+    margin: 4rem auto 6rem auto; /* 위, 양옆 가운데, 아래 */
+    padding: 0 2rem;
+  }
+  
+  .project-info {
+    flex: 1 1 300px;
+    max-width: 400px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .project-info h1 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  .project-visuals {
+    flex: 2 1 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .project-visuals img,
+  .project-visuals video {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
